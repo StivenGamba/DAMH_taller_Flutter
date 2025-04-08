@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppStrings {
   static const String AppNombre = "GPS Mobile";
-  static const String AppMinombre = "SAtiven Nicolas Gamba Robayo";
+  static const String AppMinombre = "Stiven Nicolas Gamba Robayo";
   static const String TextHome =
       "Inicia una nueva aventura con GPS Movile y descubre una nueva forma de ver el mundo";
   static const String Comineza = "Comienza";

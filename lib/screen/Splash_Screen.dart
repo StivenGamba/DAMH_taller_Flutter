@@ -45,6 +45,15 @@ class _SplashScreenState extends State<SplashScreen> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
+              const SizedBox(height: 150),
+              Text(
+                AppStrings.AppMinombre,
+                style: TextStyle(
+                  color: AppColors.negro,
+                  fontSize: 19,
+                  fontWeight: FontWeight.normal,
+                ),
+              ),
             ],
           ),
         ),

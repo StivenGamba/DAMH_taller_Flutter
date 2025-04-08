@@ -39,7 +39,6 @@ class LoginScreen extends StatelessWidget {
               ),
 
               //------------------------
-
               const SizedBox(height: 40),
 
               //------------------------
@@ -56,11 +55,9 @@ class LoginScreen extends StatelessWidget {
               //------------------------
 
               //------------------------
-
               const SizedBox(height: 40),
 
               //------------------------
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -75,8 +72,19 @@ class LoginScreen extends StatelessWidget {
                   Flexible(
                     child: TextField(
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(
+                        enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(
+                            color: AppColors.negro, // Borde normal
+                            width: 2,
+                          ),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(
+                            color: AppColors.blanco, // Borde al hacer focus
+                            width: 2,
+                          ),
                         ),
                         filled: true,
                         fillColor: AppColors.blanco,
@@ -92,11 +100,9 @@ class LoginScreen extends StatelessWidget {
               ),
 
               //------------------------
-
               const SizedBox(height: 10),
 
               //------------------------
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -111,8 +117,19 @@ class LoginScreen extends StatelessWidget {
                   Flexible(
                     child: TextField(
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(
+                        enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(
+                            color: AppColors.negro, // Borde normal
+                            width: 2,
+                          ),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(
+                            color: AppColors.blanco, // Borde al hacer focus
+                            width: 2,
+                          ),
                         ),
                         filled: true,
                         fillColor: AppColors.blanco,
@@ -128,35 +145,34 @@ class LoginScreen extends StatelessWidget {
               ),
 
               //------------------------
-
               const SizedBox(height: 20),
 
               //------------------------
-
               ElevatedButton(
                 onPressed: () {
                   Navigator.of(context).pushReplacementNamed(Routes.login);
                 },
 
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.azulOscuro,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 50, vertical: 15),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        side: BorderSide(color: AppColors.blanco, width: 2))),
+                  backgroundColor: AppColors.azulOscuro,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 50,
+                    vertical: 15,
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                    side: BorderSide(color: AppColors.blanco, width: 2),
+                  ),
+                ),
 
                 //------------------
                 child: const Text(
                   AppStrings.ingresar,
-                  style: TextStyle(
-                    color: AppColors.blanco,
-                    fontSize: 25,
-                  ),
+                  style: TextStyle(color: AppColors.blanco, fontSize: 25),
                 ),
               ),
-              //------------------------
 
+              //------------------------
               const SizedBox(height: 20),
 
               //------------------------
@@ -171,19 +187,19 @@ class LoginScreen extends StatelessWidget {
               ),
 
               //------------------------
-
               const SizedBox(height: 10),
 
               //------------------------
-
               ElevatedButton(
                 onPressed: () {
                   Navigator.of(context).pushReplacementNamed(Routes.login);
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.azulOscuro,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 50,
+                    vertical: 15,
+                  ),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15),
                     side: BorderSide(color: AppColors.blanco, width: 2),
@@ -210,20 +226,15 @@ class LoginScreen extends StatelessWidget {
               ),
 
               //------------------------
-
               const SizedBox(height: 10),
 
               //------------------------
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     AppStrings.NoTienescuenta,
-                    style: TextStyle(
-                      color: AppColors.azulOscuro,
-                      fontSize: 16,
-                    ),
+                    style: TextStyle(color: AppColors.azulOscuro, fontSize: 16),
                   ),
                   Text(
                     AppStrings.Registrate,

@@ -23,8 +23,8 @@ class HomeScreen extends StatelessWidget {
                 height: 200,
                 fit: BoxFit.contain,
               ),
-              //------------------------
 
+              //------------------------
               const SizedBox(height: 40),
 
               //------------------------
@@ -38,7 +38,6 @@ class HomeScreen extends StatelessWidget {
               ),
 
               //------------------------
-
               const SizedBox(height: 40),
 
               //------------------------
@@ -53,40 +52,37 @@ class HomeScreen extends StatelessWidget {
               ),
 
               //------------------------
-
               const SizedBox(height: 40),
 
               //------------------------
-
               ElevatedButton(
                 onPressed: () {
                   Navigator.of(context).pushReplacementNamed(Routes.login);
                 },
 
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.azulOscuro,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 50, vertical: 15),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        side: BorderSide(color: AppColors.blanco, width: 2))),
+                  backgroundColor: AppColors.azulOscuro,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 50,
+                    vertical: 15,
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                    side: BorderSide(color: AppColors.blanco, width: 2),
+                  ),
+                ),
 
                 //------------------
                 child: const Text(
                   AppStrings.Comineza,
-                  style: TextStyle(
-                    color: AppColors.blanco,
-                    fontSize: 25,
-                  ),
+                  style: TextStyle(color: AppColors.blanco, fontSize: 25),
                 ),
               ),
 
               //------------------------
-
               const SizedBox(height: 40),
 
               //------------------------
-
               Text(
                 AppStrings.Registrate,
                 style: TextStyle(
