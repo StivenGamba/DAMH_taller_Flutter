@@ -21,8 +21,9 @@ flutter:
   assets:
     - assets/icons/logo.png
     - assets/icons/Google.png
-    - assets/icons/Usuario.png
+    - assets/icons/usuario.jpg
     - assets/icons/llave.png
+    - assets/icons/email.png
 
 flutter_icons:
   android: true

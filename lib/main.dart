@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:gps_app/screen/Splash_Screen.dart';
-import 'package:gps_app/screen/screen_home.dart';
-import 'package:gps_app/screen/screen_login.dart';
+import 'package:gps_app/presentation/screen/Splash_Screen.dart';
+import 'package:gps_app/presentation/screen/screen_home.dart';
+import 'package:gps_app/presentation/screen/screen_login.dart';
+import 'package:gps_app/presentation/screen/password_recovery_screen.dart';
 import 'core/routes.dart';
 import 'core/string.dart';
 
@@ -21,6 +22,7 @@ class MainApp extends StatelessWidget {
         Routes.splash: (context) => const SplashScreen(),
         Routes.home: (context) => const HomeScreen(),
         Routes.login: (context) => const LoginScreen(),
+        Routes.recoverPassword: (context) => const RecoverPasswordScreen(),
       },
     );
   }

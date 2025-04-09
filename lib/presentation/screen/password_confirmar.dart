@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import '../core/routes.dart';
-import '../core/color.dart';
-import '../core/string.dart';
+import '../../core/routes.dart';
+import '../../core/color.dart';
+import '../../core/string.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class ConfirmarPasswordScreen extends StatelessWidget {
+  const ConfirmarPasswordScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -39,20 +39,32 @@ class LoginScreen extends StatelessWidget {
               ),
 
               //------------------------
-              const SizedBox(height: 40),
+              const SizedBox(height: 20),
 
               //------------------------
               Text(
-                AppStrings.TextLogin,
+                AppStrings.RecoverPasswordTitle,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: AppColors.negro,
                   fontSize: 25,
-                  fontWeight: FontWeight.normal,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
 
+                       //------------------------
+              const SizedBox(height: 20),
+
               //------------------------
+              Text(
+                AppStrings.RecoverPassword,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: AppColors.negro,
+                  fontSize: 15,
+                  fontWeight: FontWeight.normal,
+                ),
+              ),
 
               //------------------------
               const SizedBox(height: 40),
@@ -63,7 +75,7 @@ class LoginScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Image.asset(
-                    'assets/icons/usuario.png',
+                    'assets/icons/llave.png',
                     width: 80,
                     height: 80,
                     fit: BoxFit.contain,
@@ -167,63 +179,17 @@ class LoginScreen extends StatelessWidget {
 
                 //------------------
                 child: const Text(
-                  AppStrings.ingresar,
-                  style: TextStyle(color: AppColors.blanco, fontSize: 25),
+                  AppStrings.RecoverPasswordTitle,
+                  style: TextStyle(color: AppColors.blanco, fontSize: 20),
                 ),
               ),
 
-              //------------------------
-              const SizedBox(height: 20),
-
-              //------------------------
-              Text(
-                AppStrings.RecuperaCon,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: AppColors.negro,
-                  fontSize: 25,
-                  fontWeight: FontWeight.normal,
-                ),
-              ),
+      
 
               //------------------------
               const SizedBox(height: 10),
 
-              //------------------------
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).pushReplacementNamed(Routes.login);
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.azulOscuro,
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 50,
-                    vertical: 15,
-                  ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
-                    side: BorderSide(color: AppColors.blanco, width: 2),
-                  ),
-                ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Image.asset(
-                      'assets/icons/Google.png',
-                      width: 30,
-                      height: 30,
-                    ),
-                    const SizedBox(width: 10),
-                    Text(
-                      AppStrings.IngresaGoogle,
-                      style: const TextStyle(
-                        color: AppColors.blanco,
-                        fontSize: 25,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              
 
               //------------------------
               const SizedBox(height: 10),
@@ -237,7 +203,7 @@ class LoginScreen extends StatelessWidget {
                     style: TextStyle(color: AppColors.azulOscuro, fontSize: 16),
                   ),
                   Text(
-                    AppStrings.Registrate,
+                    AppStrings.IniciarSesion,
                     style: TextStyle(
                       color: AppColors.blanco,
                       fontSize: 16,

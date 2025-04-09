@@ -13,4 +13,7 @@ class AppStrings {
   static const String RecuperaCon = "Recupera Tu Contraseña";
   static const String IngresaGoogle = "Ingresa Con Google";
   static const String NoTienescuenta = "¿No tienes cuenta?";
+  static const String RecoverPasswordTitle = "Recupera tu contraseña";
+  static const String RecoverPassword = "Digita tu nueva contraseña, y confirmala.";
+  static const String IniciarSesion = "Inicia sesión.";
 }

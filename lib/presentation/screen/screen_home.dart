@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../core/routes.dart';
-import '../core/color.dart';
-import '../core/string.dart';
-import 'package:gps_app/screen/screen_login.dart';
+import '../../core/routes.dart';
+import '../../core/color.dart';
+import '../../core/string.dart';
+import 'package:gps_app/presentation/screen/screen_login.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
