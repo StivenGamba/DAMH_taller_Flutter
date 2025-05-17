@@ -1,4 +1,4 @@
-name: gps_app
+name: camiseta_futbolera
 description: "A new Flutter project."
 publish_to: 'none'
 version: 0.1.0
@@ -9,6 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  google_sign_in: ^6.1.0
+  http: ^1.1.0
 
 dev_dependencies:
   flutter_test:
@@ -24,6 +26,10 @@ flutter:
     - assets/icons/usuario.jpg
     - assets/icons/llave.png
     - assets/icons/email.png
+    - assets/icons/nombreApp.png
+    - assets/icons/logoEstrellas.png
+    - assets/icons/contrasena.png
+    - assets/icons/telefono.png
 
 flutter_icons:
   android: true

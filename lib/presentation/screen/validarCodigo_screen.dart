@@ -1,63 +1,10 @@
-import 'package:camiseta_futbolera/presentation/screen/screen_home.dart';
-import 'package:camiseta_futbolera/domain/entities/user.dart';
-import 'package:camiseta_futbolera/presentation/screen/screen_inicio.dart';
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import '../../core/routes.dart';
 import '../../core/color.dart';
 import '../../core/string.dart';
 
-class LoginScreen extends StatefulWidget {
-  final GoogleSignInAccount? user;
-
-  const LoginScreen({Key? key, this.user}) : super(key: key);
-
-  @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
-  final GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email', 'profile']);
-
-  bool _isLoading = false;
-
-  Future<void> _handleGoogleSignIn() async {
-    setState(() {
-      _isLoading = true;
-    });
-
-    try {
-      final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
-
-      if (googleUser != null) {
-        final GoogleSignInAuthentication googleAuth =
-            await googleUser.authentication;
-
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) => InicioScreen(user: googleUser),
-            //builder: (context) => HomeScreen(),
-          ),
-        );
-      }
-    } catch (e, stackTrace) {
-      // Imprimir el error y el stack trace en consola
-      print('Error al iniciar sesión con Google: $e');
-      print('StackTrace: $stackTrace');
-
-      //Mostrar mensaje de error inicio de sesion
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text('Error al iniciar sesión')));
-    } finally {
-      if (mounted) {
-        setState(() {
-          _isLoading = false;
-        });
-      }
-    }
-  }
+class validarCodigoScreen extends StatelessWidget {
+  const validarCodigoScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +16,6 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              //--------- Img Logos -----------
               Image.asset(
                 'assets/icons/logoEstrellas.png',
                 width: MediaQuery.of(context).size.width * 0.15, //
@@ -85,7 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
               //------------------------
               const SizedBox(height: 15),
 
-              //----------Linea  ----------
+              //------------------------
               Divider(
                 color: Colors.grey,
                 thickness: 2,
@@ -96,116 +42,60 @@ class _LoginScreenState extends State<LoginScreen> {
               //------------------------
               const SizedBox(height: 40),
 
-              //---------- Texto instrucciones --------------
+              //------------------------
+              const SizedBox(height: 20),
+
+              //------------------------
               Text(
-                AppStrings.TextHome,
+                AppStrings.validarCodigodigitos,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: AppColors.negro,
-                  fontSize: 18,
+                  fontSize: 15,
                   fontWeight: FontWeight.normal,
                 ),
               ),
 
               //------------------------
-              const SizedBox(height: 10),
+              const SizedBox(height: 40),
 
-              //-----------Imput corre -------------
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Image.asset(
-                    'assets/icons/usuario.jpg',
-                    width: 50,
-                    height: 50,
-                    fit: BoxFit.contain,
-                  ),
-                  const SizedBox(width: 10), // espacio entre imagen y campo
-                  Flexible(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: List.generate(6, (index) {
+                  return SizedBox(
+                    width: 45,
                     child: TextField(
+                      keyboardType: TextInputType.number,
+                      textAlign: TextAlign.center,
+                      maxLength: 1,
                       decoration: InputDecoration(
-                        hintText: AppStrings.correoOtelefono,
+                        filled: true,
+                        fillColor: Colors.white,
+                        counterText: "", // Oculta el contador de caracteres
                         enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(
-                            color: AppColors.negro, // Borde normal
-                            width: 2,
-                          ),
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: BorderSide(color: Colors.grey),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(
-                            color: AppColors.azulOscuro, // Borde al hacer focus
-                            width: 2,
-                          ),
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: BorderSide(color: Colors.blue),
                         ),
-                        filled: true,
-                        fillColor: AppColors.blanco,
                       ),
                       style: TextStyle(
-                        color: AppColors.negro,
-                        fontSize: 18,
-                        fontWeight: FontWeight.normal,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
-                  ),
-                ],
-              ),
-
-              //------------------------
-              const SizedBox(height: 15),
-
-              //-------------Imput contraseña  ----------
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Image.asset(
-                    'assets/icons/contrasena.png',
-                    width: 50,
-                    height: 50,
-                    fit: BoxFit.contain,
-                  ),
-                  const SizedBox(width: 10), // espacio entre imagen y campo
-                  Flexible(
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: AppStrings.contrasena,
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(
-                            color: AppColors.negro, // Borde normal
-                            width: 2,
-                          ),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(
-                            color: AppColors.azulOscuro, // Borde al hacer focus
-                            width: 2,
-                          ),
-                        ),
-                        filled: true,
-                        fillColor: AppColors.blanco,
-                      ),
-                      style: TextStyle(
-                        color: AppColors.negro,
-                        fontSize: 18,
-                        fontWeight: FontWeight.normal,
-                      ),
-                    ),
-                  ),
-                ],
+                  );
+                }),
               ),
 
               //------------------------
               const SizedBox(height: 40),
-
-              //-------------btn iniciar sesion -----------
+              //------------------------
               ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).pushReplacementNamed(Routes.inicio);
+                  Navigator.of(context).pushReplacementNamed(Routes.login);
                 },
 
                 style: ElevatedButton.styleFrom(
@@ -222,7 +112,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                 //------------------
                 child: const Text(
-                  AppStrings.ingresar,
+                  AppStrings.verificar,
                   style: TextStyle(color: AppColors.blanco, fontSize: 25),
                 ),
               ),
@@ -230,9 +120,9 @@ class _LoginScreenState extends State<LoginScreen> {
               //------------------------
               const SizedBox(height: 20),
 
-              //--------olvidaste la contraseña ----------------
+              //------------------------
               Text(
-                AppStrings.olvidaste,
+                AppStrings.solicitarNuevoCodigo,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: AppColors.negro,
@@ -242,14 +132,15 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               //------------------------RECUPERAR CONTRA
               const SizedBox(height: 0),
+
               TextButton(
                 onPressed: () {
                   Navigator.of(
                     context,
-                  ).pushReplacementNamed(Routes.recoverPassword);
+                  ).pushReplacementNamed(Routes.validarCodigo);
                 },
                 child: Text(
-                  AppStrings.RecuperaCon,
+                  AppStrings.generarNuevoCodigo,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: AppColors.azulClaro,
@@ -264,10 +155,11 @@ class _LoginScreenState extends State<LoginScreen> {
               //------------------------
               const SizedBox(height: 10),
 
-              //--------iniciar sesion con Google ----------------
+              //------------------------
               ElevatedButton(
-                onPressed:
-                    _handleGoogleSignIn, // Llamada a la función de validadcion
+                onPressed: () {
+                  Navigator.of(context).pushReplacementNamed(Routes.login);
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.blanco,
                   padding: const EdgeInsets.symmetric(

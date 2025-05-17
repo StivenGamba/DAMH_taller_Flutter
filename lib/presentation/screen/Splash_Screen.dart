@@ -15,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
 
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 3), () {
       Navigator.of(context).pushReplacementNamed(Routes.home);
     });
   }
@@ -23,35 +23,30 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.azulClaro,
+      backgroundColor: AppColors.grisClaro,
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 35.0), //
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Image.asset(
-                'assets/icons/logo.png',
-                width: 200,
-                height: 200,
-                fit: BoxFit.contain,
-              ),
-              const SizedBox(height: 20),
-              Text(
-                AppStrings.AppNombre,
-                style: TextStyle(
-                  color: AppColors.negro,
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
+              Container(
+                child: Image.asset(
+                  'assets/icons/logoEstrellas.png',
+                  width:
+                      MediaQuery.of(context).size.width *
+                      0.5, // 70% del ancho de pantalla
+                  fit: BoxFit.contain,
                 ),
               ),
-              const SizedBox(height: 150),
-              Text(
-                AppStrings.AppMinombre,
-                style: TextStyle(
-                  color: AppColors.negro,
-                  fontSize: 19,
-                  fontWeight: FontWeight.normal,
+              const SizedBox(height: 20),
+              Container(
+                child: Image.asset(
+                  'assets/icons/nombreApp.png',
+                  width:
+                      MediaQuery.of(context).size.width *
+                      0.5, // 70% del ancho de pantalla
+                  fit: BoxFit.contain,
                 ),
               ),
             ],

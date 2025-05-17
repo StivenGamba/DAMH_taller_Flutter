@@ -52,7 +52,7 @@ class ConfirmarPasswordScreen extends StatelessWidget {
                 ),
               ),
 
-                       //------------------------
+              //------------------------
               const SizedBox(height: 20),
 
               //------------------------
@@ -162,7 +162,9 @@ class ConfirmarPasswordScreen extends StatelessWidget {
               //------------------------
               ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).pushReplacementNamed(Routes.login);
+                  Navigator.of(
+                    context,
+                  ).pushReplacementNamed(Routes.validarCodigo);
                 },
 
                 style: ElevatedButton.styleFrom(
@@ -184,12 +186,8 @@ class ConfirmarPasswordScreen extends StatelessWidget {
                 ),
               ),
 
-      
-
               //------------------------
               const SizedBox(height: 10),
-
-              
 
               //------------------------
               const SizedBox(height: 10),

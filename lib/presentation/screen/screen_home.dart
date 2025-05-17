@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import '../../core/routes.dart';
 import '../../core/color.dart';
 import '../../core/string.dart';
-import 'package:gps_app/presentation/screen/screen_login.dart';
+import 'package:camiseta_futbolera/presentation/screen/screen_login.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -10,7 +11,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.azulClaro,
+      backgroundColor: AppColors.grisClaro,
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 45.0),
@@ -18,24 +19,29 @@ class HomeScreen extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Image.asset(
-                'assets/icons/logo.png',
-                width: 200,
-                height: 200,
+                'assets/icons/logoEstrellas.png',
+                width: MediaQuery.of(context).size.width * 0.15, //
+                fit: BoxFit.contain,
+              ),
+              const SizedBox(height: 10),
+              Image.asset(
+                'assets/icons/nombreApp.png',
+                width: MediaQuery.of(context).size.width * 0.5,
                 fit: BoxFit.contain,
               ),
 
               //------------------------
-              const SizedBox(height: 40),
+              const SizedBox(height: 15),
 
               //------------------------
-              Text(
-                AppStrings.AppNombre,
-                style: TextStyle(
-                  color: AppColors.negro,
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                ),
+              Divider(
+                color: Colors.grey,
+                thickness: 2,
+                indent: 20,
+                endIndent: 20,
               ),
+
+              //------------------------
 
               //------------------------
               const SizedBox(height: 40),
@@ -46,7 +52,7 @@ class HomeScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: AppColors.negro,
-                  fontSize: 25,
+                  fontSize: 18,
                   fontWeight: FontWeight.normal,
                 ),
               ),
@@ -83,12 +89,18 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(height: 40),
 
               //------------------------
-              Text(
-                AppStrings.Registrate,
-                style: TextStyle(
-                  color: AppColors.blanco,
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pushReplacementNamed(Routes.register);
+                },
+                child: Text(
+                  AppStrings.Registrate,
+                  style: TextStyle(
+                    color: AppColors.azulClaro,
+                    fontSize: 16,
+                    decoration: TextDecoration.underline,
+                    decorationColor: AppColors.azulClaro,
+                  ),
                 ),
               ),
             ],
