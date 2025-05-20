@@ -1,0 +1,20 @@
+# Flutter
+.dart_tool/
+.packages
+build/
+pubspec.lock
+
+# iOS/Mac
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/.symlinks
+ios/Pods
+macos/Pods
+macos/.symlinks
+
+# VS Code
+.vscode/
+
+# Android Studio
+*.iml
+.idea/
