@@ -20,6 +20,7 @@ import 'package:provider/provider.dart';
 import 'core/routes.dart';
 import 'core/string.dart';
 import 'core/color.dart';
+import 'package:supabase_flutter/supabase_flutter.dart' as supabase;
 
 void main() async {
   // Asegurarse de que las dependencias de Flutter estén inicializadas
@@ -88,7 +89,7 @@ class MainApp extends StatelessWidget {
                   context,
                   listen: false,
                 );
-                return ProfileScreen(currentUser: authService.currentUser);
+                return ProfileScreen();
               },
             );
 
